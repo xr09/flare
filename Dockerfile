@@ -13,4 +13,4 @@ FROM gcr.io/distroless/cc
 
 COPY --from=builder /build/flare .
 
-CMD ["/flare"]
+ENTRYPOINT ["/flare"]
