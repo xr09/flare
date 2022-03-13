@@ -3,6 +3,9 @@
 #include<unistd.h>
 #include<stdlib.h>
 
+// default time to sleep is 15s
+int sleep_time = 15;
+
 void sig_handler(int signo)
 {
     if (signo == SIGUSR1)
@@ -10,15 +13,20 @@ void sig_handler(int signo)
     else if (signo == SIGTERM)
     {
         printf("received SIGTERM\n");
-        printf("ending pending work... (it will take 15s)\n");
-        sleep(15);
-        printf("SUCCESS: program exits correctly\n");
+        printf("the program will take %is to finish correctly\n", sleep_time);
+        printf("...\n");
+        sleep(sleep_time);
+        printf("SUCCESS: the program had enough time to finish\n");
         exit(0);
     }
 }
 
-int main(void)
+int main(int argc, char *argv[])
 {
+    // if passed as CLI arg then use that
+    if( argc == 2 )
+        sleep_time = atoi(argv[1]);
+
     // disable stdout buffer to get real time logs from the container
     setbuf(stdout, NULL);
 
