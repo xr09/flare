@@ -1,7 +1,11 @@
-## v0.1
+## v0.3
 
-- Basic POC
+- Added support to handle SIGINT
 
 ## v0.2
 
 - Added sleep_time as a parameter to emulate more complex scenarios
+
+## v0.1
+
+- Basic POC
