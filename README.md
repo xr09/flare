@@ -1,6 +1,6 @@
 ## Flare
 
-Flare is a tool to test how signals are (or are not) reaching containers.
+Flare is a tool to debug how containers are reacting to signals.
 
 ![flare](flare.png)
 
