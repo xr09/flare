@@ -10,6 +10,11 @@ void sig_handler(int signo)
 {
     if (signo == SIGUSR1)
         printf("received SIGUSR1\n");
+    else if (signo == SIGINT)
+    {
+        printf("\nreceived SIGINT (Keyboard Interrupt)\n");
+        exit(0);
+    }
     else if (signo == SIGTERM)
     {
         printf("received SIGTERM\n");
@@ -33,6 +38,8 @@ int main(int argc, char *argv[])
     printf("Flare running with PID %ld\n\n", (long)getpid());
 
     // warn about uncapturable signals
+    if (signal(SIGINT, sig_handler) == SIG_ERR)
+        printf("Can't catch SIGINT\n");
     if (signal(SIGUSR1, sig_handler) == SIG_ERR)
         printf("Can't catch SIGUSR1\n");
     if (signal(SIGTERM, sig_handler) == SIG_ERR)
