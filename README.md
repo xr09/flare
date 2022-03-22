@@ -1,6 +1,8 @@
 ## Flare
 
-Little tool to test how signals are (or are not) reaching containers.
+Flare is a tool to test how signals are (or are not) reaching containers.
+
+![flare](flare.png)
 
 
 ### Why use Flare
