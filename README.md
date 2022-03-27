@@ -14,6 +14,7 @@ After running this image the flare process will print its PID and wait for signa
 Signals captured:
 
 - SIGUSR1: will print to stdout
+- SIGINT: will print to stdout and exit the program (keyboard interruption)
 - SIGTERM: will print to stdout and exit the program
 
 
