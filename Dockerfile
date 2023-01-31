@@ -1,8 +1,5 @@
 # Builder
-FROM debian:11 as builder
-
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends build-essential
+FROM gcc:12 as builder
 
 COPY src /build
 WORKDIR /build
